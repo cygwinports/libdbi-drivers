@@ -1,0 +1,22 @@
+DESCRIPTION="Database Independent Abstraction drivers"
+HOMEPAGE="http://libdbi.sourceforge.net/"
+SRC_URI="mirror://sourceforge/libdbi-drivers/${P/_/-}.tar.gz"
+SRC_DIR=${P/_/-}
+
+PATCH_URI="0.8.3-doc-build.patch"
+
+DEPEND+=" =libdbi-devel-0.8* openjade libmysqlclient-devel libpq-devel libsqlite3-devel"
+
+CYGCONF_ARGS="
+	--disable-static
+	--with-mysql
+	--with-pgsql
+	--with-sqlite3
+	--without-firebird
+	--without-freetds
+	--without-ingres
+	--without-msql
+	--without-oracle
+	--without-sqlite
+"
+MAKEOPTS+=" LDFLAGS=-no-undefined"

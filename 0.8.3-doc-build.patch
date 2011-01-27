@@ -1,0 +1,84 @@
+--- origsrc/libdbi-drivers-0.8.3-1/drivers/mysql/Makefile.am	2007-02-14 17:27:12.000000000 -0600
++++ src/libdbi-drivers-0.8.3-1/drivers/mysql/Makefile.am	2011-01-26 04:03:49.628997200 -0600
+@@ -5,7 +5,6 @@ if HAVE_MYSQL
+ if BUILDDOCS
+ # don't use docdir, doc_DATA. This way we keep the HTML in separate subdirs
+ # for each driver
+-docdir = $(datadir)/doc/$(PACKAGE)-$(VERSION)
+ htmldir = $(docdir)/dbd_mysql
+ doc_DATA = dbd_mysql.pdf
+ html_DATA = dbd_mysql/* 
+@@ -46,7 +45,7 @@ EXTRA_DIST = dbd_mysql.c dbd_mysql.h AUT
+ # jadetex spews out tons of useless crap. shut it up:
+ dbd_mysql.pdf: dbd_mysql.sgml
+ 	@echo "Converting dbd_mysql.sgml to PDF...";
+-	openjade -t tex -V tex-backend -d $(top_srcdir)/doc/include/doc-print.dsl dbd_mysql.sgml
++	openjade -t tex -V tex-backend -d $(top_srcdir)/doc/include/doc-print.dsl $(srcdir)/dbd_mysql.sgml
+ # run jadetex three times to get the references right
+ 	pdftex "&pdfjadetex" dbd_mysql.tex
+ 	pdftex "&pdfjadetex" dbd_mysql.tex
+@@ -54,7 +53,7 @@ dbd_mysql.pdf: dbd_mysql.sgml
+ 
+ dbd_mysql/*: dbd_mysql.sgml
+ 	@echo "Converting dbd_mysql.sgml to HTML...";
+-	mkdir -p dbd_mysql && cd dbd_mysql && openjade -t sgml -d $(top_srcdir)/../doc/include/doc-html.dsl ../dbd_mysql.sgml
++	mkdir -p dbd_mysql && cd dbd_mysql && openjade -t sgml -d $(top_srcdir)/doc/include/doc-html.dsl $(srcdir)/dbd_mysql.sgml
+ 
+ 
+ maintainer-clean: clean
+--- origsrc/libdbi-drivers-0.8.3-1/drivers/pgsql/Makefile.am	2007-02-14 16:47:29.000000000 -0600
++++ src/libdbi-drivers-0.8.3-1/drivers/pgsql/Makefile.am	2011-01-26 04:03:34.434570700 -0600
+@@ -3,7 +3,6 @@ AUTOMAKE_OPTIONS = foreign
+ if HAVE_PGSQL
+ 
+ if BUILDDOCS
+-docdir = $(datadir)/doc/$(PACKAGE)-$(VERSION)
+ htmldir = $(docdir)/dbd_pgsql
+ doc_DATA = dbd_pgsql.pdf
+ html_DATA = dbd_pgsql/* 
+@@ -44,7 +43,7 @@ EXTRA_DIST = dbd_pgsql.c dbd_pgsql.h AUT
+ # jadetex spews out tons of useless crap. shut it up:
+ dbd_pgsql.pdf: dbd_pgsql.sgml
+ 	@echo "Converting dbd_pgsql.sgml to PDF...";
+-	openjade -t tex -V tex-backend -d $(top_srcdir)/doc/include/doc-print.dsl dbd_pgsql.sgml
++	openjade -t tex -V tex-backend -d $(top_srcdir)/doc/include/doc-print.dsl $(srcdir)/dbd_pgsql.sgml
+ # run jadetex three times to get the references right
+ 	pdftex "&pdfjadetex" dbd_pgsql.tex
+ 	pdftex "&pdfjadetex" dbd_pgsql.tex
+@@ -52,7 +51,7 @@ dbd_pgsql.pdf: dbd_pgsql.sgml
+ 
+ dbd_pgsql/*: dbd_pgsql.sgml
+ 	@echo "Converting dbd_pgsql.sgml to HTML...";
+-	mkdir -p dbd_pgsql && cd dbd_pgsql && openjade -t sgml -d $(top_srcdir)/../doc/include/doc-html.dsl ../dbd_pgsql.sgml
++	mkdir -p dbd_pgsql && cd dbd_pgsql && openjade -t sgml -d $(top_srcdir)/doc/include/doc-html.dsl $(srcdir)/dbd_pgsql.sgml
+ 
+ 
+ maintainer-clean: clean
+--- origsrc/libdbi-drivers-0.8.3-1/drivers/sqlite3/Makefile.am	2007-02-14 17:27:55.000000000 -0600
++++ src/libdbi-drivers-0.8.3-1/drivers/sqlite3/Makefile.am	2011-01-26 04:03:41.501383000 -0600
+@@ -5,7 +5,6 @@ AUTOMAKE_OPTIONS = foreign
+ if HAVE_SQLITE3
+ 
+ if BUILDDOCS
+-docdir = $(datadir)/doc/$(PACKAGE)-$(VERSION)
+ htmldir = $(docdir)/dbd_sqlite3
+ doc_DATA = dbd_sqlite3.pdf
+ html_DATA = dbd_sqlite3/* 
+@@ -46,7 +45,7 @@ EXTRA_DIST = dbd_sqlite3.c dbd_sqlite3.h
+ # jadetex spews out tons of useless crap. shut it up:
+ dbd_sqlite3.pdf: dbd_sqlite3.sgml
+ 	@echo "Converting dbd_sqlite3.sgml to PDF...";
+-	openjade -t tex -V tex-backend -d $(top_srcdir)/doc/include/doc-print.dsl dbd_sqlite3.sgml
++	openjade -t tex -V tex-backend -d $(top_srcdir)/doc/include/doc-print.dsl $(srcdir)/dbd_sqlite3.sgml
+ # run jadetex three times to get the references right
+ 	pdftex "&pdfjadetex" dbd_sqlite3.tex
+ 	pdftex "&pdfjadetex" dbd_sqlite3.tex
+@@ -54,7 +53,7 @@ dbd_sqlite3.pdf: dbd_sqlite3.sgml
+ 
+ dbd_sqlite3/*: dbd_sqlite3.sgml
+ 	@echo "Converting dbd_sqlite3.sgml to HTML...";
+-	mkdir -p dbd_sqlite3 && cd dbd_sqlite3 && openjade -t sgml -d $(top_srcdir)/../doc/include/doc-html.dsl ../dbd_sqlite3.sgml
++	mkdir -p dbd_sqlite3 && cd dbd_sqlite3 && openjade -t sgml -d $(top_srcdir)/doc/include/doc-html.dsl $(srcdir)/dbd_sqlite3.sgml
+ 
+ 
+ maintainer-clean: clean
