@@ -3,17 +3,24 @@ HOMEPAGE="http://libdbi.sourceforge.net/"
 SRC_URI="mirror://sourceforge/libdbi-drivers/${P/_/-}.tar.gz"
 SRC_DIR=${P/_/-}
 
-PATCH_URI="0.8.3-doc-build.patch"
+PATCH_URI="0.8.3-doc-build.patch
+	   0.8.3-doc-install.patch"
 
-DEPEND+=" =libdbi-devel-0.8* openjade libmysqlclient-devel libpq-devel libsqlite3-devel"
+DEPEND="libdbi-devel
+	libmysqlclient-devel
+	libpq-devel
+	libsqlite3-devel
+	openjade"
 
 CYGCONF_ARGS="
 	--disable-static
+	--with-freetds
+	--with-freetds-incdir=/usr/include
+	--with-freetds-libdir=/usr/lib
 	--with-mysql
 	--with-pgsql
 	--with-sqlite3
 	--without-firebird
-	--without-freetds
 	--without-ingres
 	--without-msql
 	--without-oracle
