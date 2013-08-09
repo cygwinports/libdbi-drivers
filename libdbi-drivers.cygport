@@ -1,0 +1,44 @@
+NAME="libdbi-drivers"
+VERSION=0.9.0
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="Database Indpendent Abstraction drivers"
+DESCRIPTION="libdbi implements a database-independent abstraction layer in C,
+similar to the DBI/DBD layer in Perl. Writing one generic set of code,
+programmers can leverage the power of multiple databases and multiple
+simultaneous database connections by using this framework."
+HOMEPAGE="http://libdbi.sourceforge.net/"
+SRC_URI="mirror://sourceforge/libdbi-drivers/${NAME}-${VERSION}.tar.gz"
+
+PATCH_URI="
+	0.8.3-doc-build.patch
+	0.9.0-doc-install.patch
+	0.9.0-tests-vpath.patch
+"
+
+DEPEND="libdbi-devel
+	libmysqlclient-devel
+	libpq-devel
+	libsqlite3-devel
+	openjade"
+
+PKG_NAMES="${NAME} ${NAME}-doc"
+libdbi_drivers_CONTENTS="--exclude=dbd_* usr/"
+libdbi_drivers_doc_CATEGORY="Doc"
+libdbi_drivers_doc_CONTENTS="usr/share/doc/${NAME}/dbd_*"
+
+CYGCONF_ARGS="
+	--with-dbi-libdir=/usr/lib
+	--with-freetds
+	--with-freetds-incdir=/usr/include
+	--with-freetds-libdir=/usr/lib
+	--with-mysql
+	--with-pgsql
+	--with-sqlite3
+	--without-firebird
+	--without-ingres
+	--without-msql
+	--without-oracle
+	--without-sqlite
+"
+MAKEOPTS+=" LDFLAGS=-no-undefined"

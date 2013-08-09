@@ -1,0 +1,33 @@
+--- origsrc/libdbi-drivers-0.9.0/drivers/mysql/Makefile.am	2013-08-08 22:33:42.272137700 -0500
++++ src/libdbi-drivers-0.9.0/drivers/mysql/Makefile.am	2013-08-08 22:37:20.112597500 -0500
+@@ -2,8 +2,6 @@
+ 
+ AUTOMAKE_OPTIONS = foreign
+ 
+-docdir = $(datadir)/doc/$(PACKAGE)-$(VERSION)
+-
+ if HAVE_MYSQL
+ 
+ if BUILDDOCS
+--- origsrc/libdbi-drivers-0.9.0/drivers/pgsql/Makefile.am	2013-08-08 22:33:42.278138000 -0500
++++ src/libdbi-drivers-0.9.0/drivers/pgsql/Makefile.am	2013-08-08 22:37:25.086882000 -0500
+@@ -2,8 +2,6 @@
+ 
+ AUTOMAKE_OPTIONS = foreign
+ 
+-docdir = $(datadir)/doc/$(PACKAGE)-$(VERSION)
+-
+ if HAVE_PGSQL
+ 
+ if BUILDDOCS
+--- origsrc/libdbi-drivers-0.9.0/drivers/sqlite3/Makefile.am	2013-08-08 22:33:42.283138300 -0500
++++ src/libdbi-drivers-0.9.0/drivers/sqlite3/Makefile.am	2013-08-08 22:37:30.745205600 -0500
+@@ -2,8 +2,6 @@
+ 
+ AUTOMAKE_OPTIONS = foreign
+ 
+-docdir = $(datadir)/doc/$(PACKAGE)-$(VERSION)
+-
+ if HAVE_SQLITE3
+ 
+ if BUILDDOCS

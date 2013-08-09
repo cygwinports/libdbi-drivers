@@ -1,0 +1,11 @@
+--- origsrc/libdbi-drivers-0.9.0/tests/cgreen/Makefile.am	2010-09-29 16:22:34.000000000 -0500
++++ src/libdbi-drivers-0.9.0/tests/cgreen/Makefile.am	2013-08-08 22:59:20.990147300 -0500
+@@ -4,7 +4,7 @@ AUTOMAKE_OPTIONS = foreign
+ 
+ noinst_LIBRARIES = libcgreen.a
+ 
+-INCLUDES = -Iinclude
++INCLUDES = -I$(srcdir)/include
+ 
+ libcgreen_a_SOURCES =  src/unit.c src/messaging.c src/breadcrumb.c src/reporter.c src/assertions.c src/vector.c src/mocks.c src/constraint.c src/parameters.c src/text_reporter.c src/cdash_reporter.c 
+ 
